@@ -1,0 +1,67 @@
+Feature : Display  View all products content
+
+  Background:
+    Given administrator named "Tester" and password "test"       entered login button clicked
+    And Web Orders page displayed
+
+  Scenario : Displaying "View all products" content
+    When user navigate "View all products" content
+    Then Verify that "List of Products" level 2 heading is successfully displayed
+    And  Close browser
+
+  Scenario :  Displaying List of Products column headings
+    Given User on Web Orders page
+    When User navigates to the "View all products" menu
+    Then User checks whether the column headers of the “List of Products” are displayed as “Product name”, “Price”, “Discount”.
+    And    Close browser
+
+  Scenario :  Displaying List of Products column headings
+    Given User on Web Orders page
+    When User navigates to the "View all products" menu
+    Then User checks “Product name”’s price is “ Price “ and it has  “ Discount "
+    And Close browser
+
+
+  Scenario : Display View all orders content
+    Given User on Web Orders page
+    When user navigate "View all products" content
+    Then Verify that "List of All Orders" level 2 heading is successfully displayed
+    And  Close browser
+
+
+  Scenario : Checking “Edit Order” context elements
+    Given User on Web Orders page
+    When User navigates to the "View all orders” menu
+    And User clicked first row’s edit button
+    Then User should be navigated to “ Edit Order” menu and 	 “Product Information” and “Address Information” and “Payment Information” tables must be displayed
+    And Close browser
+
+
+  Scenario Outline : Using “Edit Order” buttons on List of all order
+    Given User on Web Orders page
+    When User navigates to the "View all products" menu
+    And User clicks edit button
+    Then User should be navigated to “Edit Order” with <EditIndex>  menu and “Edit Order” level 2 heading should successfully displayed
+    And Customer name should match with < Name >
+    And Product should match < Product >
+    And Close browser
+
+    Examples:
+      | Name             | Product     | EditIndex |
+      | Paul Brown       | ScreenSaver | 2         |
+      | Mark Smith       | FamilyAlbum | 3         |
+      | Steve Johns      | ScreenSaver | 4         |
+      | Charles Dodgeson | MyMoney     | 5         |
+      | Susan McLaren    | MyMoney     | 6         |
+      | Bob Feather      | FamilyAlbum | 7         |
+      | Samuel Clemens   | MyMoney     | 8         |
+      | Clare Jefferson  | FamilyAlbum | 9         |
+
+
+  Scenario : Editing “Paul Brown” orders by using “Edit Order” button
+    Given User on Web Orders page
+    When User navigates to the "View all orders” menu
+    And User clicks first column edit button
+    And User Customer Name to “John Jones” than clicks update
+    Then User should be navigated to “View all orders” menu and  first raw name must be edited.
+    And Close browser
