@@ -1,0 +1,28 @@
+1.
+Scenario: In the View all orders page, in the list of all orders section, user clicks Check All button
+Given User is on View all orders page
+When User clicks on Check All button
+Then all the check buttons on the left side of the table is clicked
+2.
+Scenario: In the View all orders page, in the list of all orders section, user clicks Check All button and Uncheck All 
+Given User is on View all orders page
+When User clicks on Check All button
+And User clicks on the Uncheck All button
+Then all the check buttons on the left side of the table is clicked and then clicking on the Uncheck button unchecks all the orders
+3.
+Scenario: In the View all orders page, in the list of all orders section, user clicks on the first order and deletes selected
+Given User is on View all orders page
+When User clicks on the first order check box 
+And User clicks on the Delete Selected 
+Then the selected order is deleted
+4.Scenario: In the View all orders page, in the list of all orders section, user clicks on the first order and deletes selected
+Given User is on View all orders page
+When User clicks on the first order check box 
+And User clicks on the Delete Selected 
+Then the selected order is deleted
+5.
+Scenario: In the View all orders page, in the list of all orders section, user clicks Check All button and Delete Selected
+Given User is on View all orders page = tester loges in + navigates to view all orders page
+When User clicks on Check All button
+And User clicks on the Delete Selected
+Then It gives a messsage on the page as "List of orders is empty. In order to add new order use this link."
